@@ -1,0 +1,20 @@
+{
+  "name": "newsie",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Lily",
+  "license": "MIT",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "dependencies": {
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^9",
+    "parcel-bundler": "^1.12.4",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat"
+  }
+}
