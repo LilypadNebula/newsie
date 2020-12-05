@@ -6,9 +6,11 @@
   "license": "MIT",
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build index.html"
+    "build": "parcel build index.html",
+    "clean": "rm -rf .cache; rm -rf dist"
   },
   "dependencies": {
+    "axios": "^0.21.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
   },
@@ -17,5 +19,8 @@
     "autoprefixer": "^9",
     "parcel-bundler": "^1.12.4",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat"
-  }
+  },
+  "browserslist": [
+    "since 2017-06"
+  ]
 }
