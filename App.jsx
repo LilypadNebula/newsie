@@ -9,7 +9,7 @@ const App = () => {
   const [sortBy, setSortBy] = useState('')
   
   const performSearch = async (term) => {
-    const res = await axios.get(`https://newsapi.org/v2/everything?q=${term}&apiKey=${process.env.NEWSAPI_KEY}&sortBy=${sortBy}`)
+    const res = await axios.get(`https://newsapi.org/v2/everything?q=${term}&apiKey=${process.env.NEWSAPI_KEY}&sortBy=${sortBy}&language=en`)
     setArticles(res.data.articles)
   }
   
