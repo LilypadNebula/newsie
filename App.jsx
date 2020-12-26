@@ -7,10 +7,18 @@ const App = () => {
   const [articles, setArticles] = useState([])
   const [searchTerm, setSearchTerm] = useState('')
   const [sortBy, setSortBy] = useState('')
+  const [sources, setSources] = useState({})
   
   const performSearch = async (term) => {
     const res = await axios.get(`https://newsapi.org/v2/everything?q=${term}&apiKey=${process.env.NEWSAPI_KEY}&sortBy=${sortBy}&language=en`)
     setArticles(res.data.articles)
+    const sourceList = {}
+    res.data.articles.forEach(article => {
+      const source = article.source
+      if (sourceList[source.name] != null) sourceList[source.name] ++
+      else sourceList[source.name] = 1
+    })
+    setSources(sourceList)
   }
   
   return (
@@ -25,6 +33,11 @@ const App = () => {
         </select>
         <button className="bg-red-500 text-white rounded p-1 lg:p-3 lg:w-1/6" onClick={() => performSearch(searchTerm)}>Search</button>
       </nav>
+      <div className="flex justify-around flex-wrap">
+        {Object.keys(sources).map(sourceName => {
+          return <p className="sourceText bold w-1/4 mx-4 my-2" key={sourceName}>{`${sourceName}: ${sources[sourceName]}`}</p>
+        })}
+      </div>
       <div className="flex flex-wrap justify-around">{articles.map(a => <NewsCard article={a} key={a.title}/>)}</div>
     </main>
   

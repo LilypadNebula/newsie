@@ -5,3 +5,9 @@
 body {
   @apply bg-gray-200;
 }
+
+@media(max-width:700px) {
+  .sourceText {
+    font-size: 30px;
+  }
+}
